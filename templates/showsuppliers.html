@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: orange;
+            text-align: center;
+            font-size: 24px;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid white;
+        }
+
+        tr.highlight {
+            background-color: orange;
+            animation: highlightAnimation 1s ease infinite alternate;
+        }
+
+        @keyframes highlightAnimation {
+            0% {
+                background-color: black;
+            }
+            50% {
+                background-color: orange;
+            }
+            100% {
+                background-color: black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Supplier List</h1>
+    <table>
+        <tr>
+            <th>Supplier ID</th>
+            <th>Supplier Name</th>
+            <th>Supplier Address</th>
+            <th>Supplier Email</th>
+        </tr>
+        {% for supplier in data %}
+        <tr class="highlight">
+            <td>{{ supplier['supplier_id'] }}</td>
+            <td>{{ supplier['supplier_name'] }}</td>
+            <td>{{ supplier['supplier_addr'] }}</td>
+            <td>{{ supplier['supplier_email'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

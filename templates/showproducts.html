@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .highlight {
+            background-color: orange;
+            animation: highlightAnimation 1s ease infinite alternate;
+        }
+
+        @keyframes highlightAnimation {
+            0% {
+                background-color: black;
+            }
+            50% {
+                background-color: orange;
+            }
+            100% {
+                background-color: black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Product List</h1>
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Product Stock</th>
+            <th>Product Price</th>
+            <th>Product Supplier ID</th>
+        </tr>
+        {% for product in data %}
+        <tr class="highlight">
+            <td>{{ product.product_id }}</td>
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.product_stock }}</td>
+            <td>{{ product.product_price }}</td>
+            <td>{{ product.product_supplierid }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

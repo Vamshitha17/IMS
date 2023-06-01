@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Orders</title>
+    <style>
+        /* CSS for black background and orange highlights */
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        h1 {
+            color: orange;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid orange;
+            padding: 8px;
+        }
+
+        /* CSS for animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Add any other animations you desire */
+
+    </style>
+</head>
+<body>
+    <h1>Show Orders</h1>
+    <table id="ordersTable">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Product ID</th>
+                <th>Customer ID</th>
+                <th>Order Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in data %}
+            <tr class="orderRow">
+                <td>{{ order.ORDER_id }}</td>
+                <td>{{ order.PRODUCT_ID }}</td>
+                <td>{{ order.CUSTOMER_ID }}</td>
+                <td>{{ order.ORDER_QUANTITY }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        // JavaScript for animations
+        const orderRows = document.querySelectorAll('.orderRow');
+
+        function animateTableRows() {
+            orderRows.forEach((row, index) => {
+                row.style.animation = `fadeIn 0.5s ease ${index * 0.1}s forwards`;
+            });
+        }
+
+        // Call the animation function after the page has loaded
+        window.addEventListener('load', animateTableRows);
+    </script>
+</body>
+</html>
